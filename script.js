@@ -1,8 +1,8 @@
 // database siswa yang dibuat dengan array
 let data = [
-    { nama: "Ainul", usia: 17, alamat: "Kediri", mtk: 80, ipa: 90, bhsIndo: 100, ket: Boolean},
-    { nama: "Yaqin", usia: 16, alamat: "Malang", mtk: 50, ipa: 80, bhsIndo: 76, ket: Boolean},
-    { nama: "Sams", usia: 18, alamat: "Surabaya", mtk: 100, ipa: 90, bhsIndo: 80, ket: Boolean}
+    { nama: "Ainul", usia: 17, alamat: "Kediri", ayah: "Ali", ibu: "Dewi", mtk: 80, ipa: 90, bhsIndo: 100, ket: Boolean},
+    { nama: "Yaqin", usia: 16, alamat: "Malang", ayah: "Mas'at", ibu: "Sri", mtk: 50, ipa: 80, bhsIndo: 76, ket: Boolean},
+    { nama: "Sams", usia: 18, alamat: "Surabaya", ayah: "Tono", ibu: "Rani", mtk: 100, ipa: 90, bhsIndo: 80, ket: Boolean}
   ]
 
 // function untuk menampilkan data siswa 
@@ -10,16 +10,28 @@ let data = [
     // switch yang digunakan untuk membedakan data menurut 2 kriteria
     switch (list) {
         case "profile" :
-            console.log("Data Siswa:");
+            console.log("Data Siswa:")
             let i = 0
             // while untuk menampilkan data berulang dari array
             while (i < data.length) {
-            console.log(
-                `Nama: ${data[i].nama}, Usia: ${data[i].usia}, Alamat: ${data[i].alamat}`
-            );
-            i++
+                console.log(
+                    `Nama: ${data[i].nama}, Usia: ${data[i].usia}, Alamat: ${data[i].alamat}`
+                );
+                i++
             }
             break
+        
+        case "keluarga" :
+            let o = 0
+            console.log("Nama Keluarga: ")
+            do {
+                console.log(
+                    `Nama: ${data[o].nama}, Nama Ayah: ${data[o].ayah}, Nama Ibu: ${data[o].ibu}`
+                );
+                o++
+            } while (o < data.length)
+        break
+
         case "nilai" :
             console.log("Nilai Siswa: ")
             // for statement untuk mengulang dari data array
@@ -50,10 +62,12 @@ let data = [
 //   manampilkan function
 
 // function yang sama tetapi dengan parameter berbeda
-// parameter untuk menampilkan profile di case pertama 
+// parameter untuk menampilkan profile di case pertama menggunakan while
   tampilData("profile")
   console.log("")
-
-// parameter untuk menampilkan data nilai siswa dan keterangan lulus/tidak di case kedua
+// parameter untuk menampilkan nama keluarga di case kedua menggunakan do while
+  tampilData("keluarga")
+  console.log("")
+// parameter untuk menampilkan data nilai siswa dan keterangan lulus/tidak di case ketiga menggunakan for statement
   tampilData("nilai")
   
